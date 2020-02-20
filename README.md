@@ -9,3 +9,7 @@
 2. 进入项目目录执行`npm i`安装依赖
 3. 执行`npm run dev`开始开发
 4. 修改完后执行`npm run pub`发布到ghpages
+
+## 注意
+node 1.7.0执行npm run pub 失败
+8.11.2 cnpm 执行成功
