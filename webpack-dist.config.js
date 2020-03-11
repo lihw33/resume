@@ -6,6 +6,7 @@ const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const EndWebpackPlugin = require('end-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { WebPlugin } = require('web-webpack-plugin');
 const ghpages = require('gh-pages');
 
@@ -69,6 +70,11 @@ module.exports = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
+    }),
+    // 自动删除public目录, 默认删除outputPath配置的目录
+    new CleanWebpackPlugin({
+      verbose: true, //开启在控制台输出信息
+      dry: false
     }),
     new UglifyJsPlugin({
       // 最紧凑的输出
